@@ -4,6 +4,7 @@ let context = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
+let nodesCheckbox = document.getElementById("woah");
 
 let jump;
 
@@ -161,7 +162,7 @@ function gameLoop() {
     player.lastTime = now;
 
     drawWalls();
-    // drawNodes();
+    if (nodesCheckbox.checked) drawNodes();
 
     if (path) {
         if (collisionDetectObjects(player, {x: path[currentPathIndex].x, y: path[currentPathIndex].y - 3})) {
@@ -237,6 +238,7 @@ document.addEventListener("mousedown", function(event) {
             box.style.position = "absolute";
             box.style.top = event.clientY + "px";
             box.style.left = event.clientX + "px";
+            box.style.zIndex = -100;
 
             startX = event.clientX;
             startY = event.clientY;
