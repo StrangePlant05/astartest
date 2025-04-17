@@ -182,9 +182,9 @@ function gameLoop() {
 gameLoop();
 
 document.addEventListener("keydown", function(event) {
-    if (event.key == " " || event.key == "w" && !event.repeat) { 
-        jump();
-    }
+    // if (event.key == " " || event.key == "w" && !event.repeat) { 
+    //     jump();
+    // }
     keys[event.key] = true;
 
     if (event.ctrlKey && event.key === "z") {
